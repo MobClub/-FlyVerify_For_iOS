@@ -1,0 +1,38 @@
+//
+//  FVDPrefixHeader.pch
+//  FVDPrefixHeader
+//
+//  Created by fly on 2019/6/2.
+//  Copyright © 2019 fly. All rights reserved.
+//
+
+#ifndef FVDPrefixHeader_pch
+#define FVDPrefixHeader_pch
+
+//是否是X
+#define FVD_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? ([[UIScreen mainScreen] currentMode].size.height == 1792 ||[[UIScreen mainScreen] currentMode].size.height >=2436) : NO)
+
+//底部home高度
+#define FVD_TabbarSafeBottomMargin (FVD_iPhoneX ? 34.f : 10.f)
+
+#define FVD_StatusBarSafeBottomMargin (FVD_iPhoneX ? 44.f : 20.f)
+
+#define FVD_ScreenWidth ([UIScreen mainScreen].bounds.size.width)
+#define FVD_ScreenHeight ([UIScreen mainScreen].bounds.size.height)
+
+#define WeakSelf __weak typeof(self) weakSelf = self;
+
+//开启则为测试环境
+//#define FVD_TEST
+
+#ifdef FVD_TEST
+//测试
+#else
+
+#define SVD_LoginURL @"http://demo.accuratead.cn/demo/sdkLogin"
+
+#endif
+
+#define FVD_SMS_TEST_PHONE @"13166238067"
+
+#endif /* FVDPrefixHeader_pch */
